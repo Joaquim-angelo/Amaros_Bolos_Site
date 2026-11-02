@@ -101,7 +101,7 @@ function sendWhatsApp(){
   lines.push("",`*Total estimado:* ${money(s.size.price)}${s.specials.length?" + adicionais a consultar":""}`);
   if(notes)lines.push("",`*Observações:* ${notes}`);
   lines.push("","Aguardo confirmação de disponibilidade e valor final. 💗");
-  const phone="558699253561";
+  const phone="558698048453";
   window.open(`https://wa.me/${phone}?text=${encodeURIComponent(lines.join("\n"))}`,"_blank","noopener");
 }
 $$('input[name="format"]').forEach(el=>el.addEventListener("change",()=>{selectedSize=0;renderSizes()}));
