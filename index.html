@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f9dce3">
+  <title>Amaro's Bolos | Monte seu bolo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand-mark" href="#" aria-label="Amaro's Bolos">
+    <span class="brand-cake">🎂</span><span>Cardápio de<br><b>Bolos</b></span>
+  </a>
+  <div class="brand-name"><div>Amaro’s</div><small>Ana Márcia</small></div>
+  <a class="whats-top" href="https://wa.me/558699253561" target="_blank" rel="noopener" aria-label="WhatsApp">◉</a>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy"><span class="eyebrow">FEITO COM CARINHO</span><h1>Torne seu momento<br> ainda mais doce!</h1><p>Monte seu bolo do seu jeito e envie seu pedido.</p></div>
+    <div class="hero-art" role="img" aria-label="Bolo decorado com morangos">🍓</div>
+  </section>
+
+  <section class="intro">
+    <span class="eyebrow">PERSONALIZE SUA ENCOMENDA</span>
+    <h2>Vamos montar seu bolo?</h2>
+    <p>Escolha o formato, o tamanho, a massa e os recheios. O resumo e o preço serão atualizados automaticamente.</p>
+  </section>
+
+  <form id="orderForm">
+    <section class="step">
+      <div class="step-heading"><span class="number">1</span><div><h2>Escolha o formato do bolo</h2><p>O preço varia conforme o formato e o tamanho.</p></div></div>
+      <div class="option-grid formats">
+        <label class="photo-option"><input type="radio" name="format" value="redondo" checked><span class="photo"><img src="assets/redondo.jpg" alt="Bolo redondo"></span><b>Redondo</b></label>
+        <label class="photo-option"><input type="radio" name="format" value="quadrado"><span class="photo"><img src="assets/quadrado.jpg" alt="Bolo quadrado"></span><b>Quadrado</b></label>
+        <label class="photo-option"><input type="radio" name="format" value="retangular"><span class="photo"><img src="assets/retangular.jpg" alt="Bolo retangular"></span><b>Retangular</b></label>
+      </div>
+    </section>
+
+    <section class="step">
+      <div class="step-heading"><span class="number">2</span><div><h2>Escolha o tamanho</h2><p>Quantidade aproximada de fatias.</p></div></div>
+      <div id="sizes" class="size-grid"></div>
+      <p class="hint" id="sizeHint"></p>
+    </section>
+
+    <section class="step">
+      <div class="step-heading"><span class="number">3</span><div><h2>Escolha a massa</h2><p>Selecione uma opção.</p></div></div>
+      <div class="option-grid dough-grid">
+        <label class="photo-option"><input type="radio" name="dough" value="Branca" checked><span class="photo"><img src="assets/branca.jpg" alt="Massa branca"></span><b>Branca</b></label>
+        <label class="photo-option"><input type="radio" name="dough" value="Chocolate"><span class="photo"><img src="assets/chocolate.jpg" alt="Massa de chocolate"></span><b>Chocolate</b></label>
+      </div>
+    </section>
+
+    <section class="step">
+      <div class="step-heading"><span class="number">4</span><div><h2>Escolha o(s) recheio(s)</h2><p>Você pode selecionar mais de um. Recheios especiais têm valor adicional a consultar.</p></div></div>
+      <h3 class="subheading">Tradicionais</h3>
+      <div class="fillings-grid" id="regularFillings"></div>
+      <h3 class="subheading special-title">Especiais <span>valor adicional a consultar</span></h3>
+      <div class="special-grid" id="specialFillings"></div>
+    </section>
+
+    <section class="step details-step">
+      <div class="step-heading"><span class="number">5</span><div><h2>Detalhes da encomenda</h2><p>Preencha os dados para enviar pelo WhatsApp.</p></div></div>
+      <div class="details-grid">
+        <label>Seu nome<input id="customerName" type="text" placeholder="Como podemos chamar você?"></label>
+        <label>Data desejada<input id="orderDate" type="date"></label>
+        <label class="wide">Decoração ou observações<textarea id="notes" rows="3" placeholder="Conte como gostaria da decoração, ocasião, escrita no bolo..."></textarea></label>
+      </div>
+    </section>
+  </form>
+
+  <aside class="summary" aria-live="polite">
+    <div class="summary-left">
+      <div class="summary-title"><span>🧾</span><h2>Resumo do pedido</h2></div>
+      <ul id="summaryList"></ul>
+      <div id="quoteNotice" class="quote-notice" hidden>Seu pedido inclui recheio especial. O valor adicional será confirmado pela confeitaria.</div>
+    </div>
+    <div class="summary-total">
+      <span>Total estimado</span>
+      <strong id="total">R$ 100,00</strong>
+      <small id="totalCaption">Valor conforme catálogo</small>
+      <button id="sendOrder" type="button" class="whatsapp-button"><span>◉</span> Enviar pedido pelo WhatsApp</button>
+      <p class="phone-note">Seu pedido será enviado para<br><b>(86) 9925-3561</b></p>
+    </div>
+  </aside>
+
+  <section class="conditions">
+    <h2>Informações importantes</h2>
+    <div class="condition-list">
+      <p>💗 <b>Pagamento:</b> Pix, dinheiro ou espécie.</p>
+      <p>💗 <b>Confirmação:</b> entrada de 50% para confirmar o pedido.</p>
+      <p>💗 <b>Cancelamento:</b> com até 48 horas de antecedência do prazo.</p>
+      <p>💗 <b>Decoração:</b> topos e decorações complexas podem ter acréscimo. Consulte os valores.</p>
+    </div>
+    <p class="address">📍 Povoado Ema – José de Freitas</p>
+  </section>
+</main>
+
+<footer><span>🎂</span><p>Amaro’s Bolos <i>•</i> Qualidade e muito sabor em cada detalhe!</p><span>♡</span></footer>
+<script src="script.js"></script>
+</body>
+</html>

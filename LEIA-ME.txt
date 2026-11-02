@@ -1,0 +1,24 @@
+AMARO'S BOLOS — CONFIGURADOR DE PEDIDOS
+
+Como usar:
+1. Extraia a pasta do ZIP.
+2. Abra index.html em um navegador (Chrome, Edge, Firefox).
+3. O cliente escolhe formato, tamanho, massa e recheios.
+4. O botão abre o WhatsApp com o pedido preenchido.
+
+Arquivos:
+- index.html: estrutura da página
+- styles.css: aparência responsiva
+- script.js: catálogo, cálculo e envio para WhatsApp
+- assets/: recortes de imagens do material de referência enviado
+
+ATENÇÃO:
+- O telefone foi configurado exatamente como informado: 86 9925-3561
+  (link internacional usado: 558699253561). Confirme se esse número está
+  cadastrado no WhatsApp; se faltar algum dígito, altere a constante "phone"
+  no script.js.
+- O catálogo informa que recheios especiais e decorações complexas têm
+  acréscimos a consultar. Por isso, o site mostra o preço-base e sinaliza
+  que o adicional será combinado pelo WhatsApp.
+- Mantive os valores e quantidades do catálogo enviado, inclusive o item
+  "G (26 fatias - R$ 300,00)" para formatos quadrado/retangular.
