@@ -44,9 +44,20 @@ function renderSizes(){
   updateSummary();
 }
 function renderFillings(){
-  $("#regularFillings").innerHTML=regular.map((name,i)=>`<label class="filling"><input type="checkbox" name="filling" value="${name}"><span>${name}</span></label>`).join("");
+  $("#regularFillings").innerHTML=regular.map(name=>`<label class="filling"><input type="checkbox" name="filling" value="${name}"><span>${name}</span></label>`).join("");
   $("#specialFillings").innerHTML=special.map(name=>`<label class="filling"><input type="checkbox" name="special" value="${name}"><span>${name}</span></label>`).join("");
-  $$('input[name="filling"],input[name="special"]').forEach(el=>el.addEventListener("change",updateSummary));
+
+  // O limite é conjunto: no máximo dois sabores, somando tradicionais e especiais.
+  $$('input[name="filling"],input[name="special"]').forEach(el=>{
+    el.addEventListener("change",()=>{
+      const selected=$$('input[name="filling"]:checked,input[name="special"]:checked');
+      if(selected.length>2){
+        el.checked=false;
+        alert("Você pode escolher no máximo 2 sabores de recheio.");
+      }
+      updateSummary();
+    });
+  });
 }
 function getSelections(){
   const format=currentFormat(), size=catalog[format][Number($('input[name="size"]:checked')?.value||0)];
@@ -71,6 +82,11 @@ function updateSummary(){
 }
 function sendWhatsApp(){
   const s=getSelections(), name=$("#customerName").value.trim(), date=$("#orderDate").value, notes=$("#notes").value.trim();
+  if(s.fillings.length+s.specials.length>2){
+    alert("Você pode escolher no máximo 2 sabores de recheio.");
+    $("#regularFillings").scrollIntoView({behavior:"smooth",block:"center"});
+    return;
+  }
   if(!s.fillings.length && !s.specials.length){alert("Selecione pelo menos um recheio para continuar.");$("#regularFillings").scrollIntoView({behavior:"smooth",block:"center"});return;}
   if(!name){alert("Informe seu nome para enviar o pedido.");$("#customerName").focus();return;}
   const dateText=date?new Date(date+"T12:00:00").toLocaleDateString("pt-BR"):"A combinar";
